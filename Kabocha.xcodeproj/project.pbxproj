@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9739F195265785AD00FD3B0F /* girl-cooking.png in Resources */ = {isa = PBXBuildFile; fileRef = 9739F194265785AD00FD3B0F /* girl-cooking.png */; };
+		9739F1972658E99800FD3B0F /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F1962658E99800FD3B0F /* CardViewModifier.swift */; };
 		97EF9F7A264E473A002F665B /* KabochaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF9F79264E473A002F665B /* KabochaApp.swift */; };
 		97EF9F7C264E473A002F665B /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF9F7B264E473A002F665B /* RecipeView.swift */; };
 		97EF9F7E264E473B002F665B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97EF9F7D264E473B002F665B /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		9739F194265785AD00FD3B0F /* girl-cooking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "girl-cooking.png"; sourceTree = "<group>"; };
+		9739F1962658E99800FD3B0F /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
 		97EF9F76264E473A002F665B /* Kabocha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kabocha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EF9F79264E473A002F665B /* KabochaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabochaApp.swift; sourceTree = "<group>"; };
 		97EF9F7B264E473A002F665B /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				97EF9F8C264E5452002F665B /* AsyncImageView.swift */,
 				9739F19126577F9000FD3B0F /* HomeView */,
 				9739F19026577B5500FD3B0F /* RecipeView */,
+				9739F1962658E99800FD3B0F /* CardViewModifier.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				97EF9F97264F917B002F665B /* RecipeViewModel.swift in Sources */,
 				97EF9F7C264E473A002F665B /* RecipeView.swift in Sources */,
 				97EF9F7A264E473A002F665B /* KabochaApp.swift in Sources */,
+				9739F1972658E99800FD3B0F /* CardViewModifier.swift in Sources */,
 				97EF9F95264F4131002F665B /* HomeViewModel.swift in Sources */,
 				97EF9F93264E69EA002F665B /* MealDatabase.swift in Sources */,
 				97EF9F91264E6256002F665B /* HomeView.swift in Sources */,

@@ -32,6 +32,7 @@ struct AsyncImageView: View {
             Image(uiImage: image)
                .resizable()
                .scaledToFit()
+               .clipped()
          } else {
             ProgressView()
          }

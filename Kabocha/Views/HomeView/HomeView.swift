@@ -19,6 +19,9 @@ struct HomeView: View {
          ScrollView {
             VStack {
                randomMealCard
+               HStack {
+                  searchByNameCard
+               }
             }
          }
          .navigationBarTitle("Home",displayMode: .inline)
@@ -31,7 +34,9 @@ struct HomeView: View {
    var toolBar: some ToolbarContent {
       Group {
          ToolbarItem(placement: .navigationBarTrailing) {
-            
+            Button("Next Meal") {
+               viewModel.fetchMeal()
+            }
          }
       }
    }
@@ -40,7 +45,6 @@ struct HomeView: View {
       NavigationLink(destination: recipeView()) {
          VStack {
             VStack {
-               
                HStack {
                   Text(viewModel.randomMeal?.name ?? "")
                      .font(.title)
@@ -52,14 +56,30 @@ struct HomeView: View {
                   .padding([.top,.horizontal])
                
                AsyncImageView(urlString: $viewModel.randomMealImageURL)
-                  .padding()            }
+                  .cornerRadius(8)
+            }
+               .cardView()
          }
-         .frame(maxWidth: .infinity)
-         .background(Color.white)
-         .cornerRadius(8)
-         .shadow(color: .black.opacity(0.2), radius: 10, x: 5, y: 5)
-         .padding(16)
+            .padding()
       }
+   }
+   
+   var searchByNameCard: some View {
+      NavigationLink(destination: Text("Search by name")) {
+         VStack {
+            HStack {
+               Text("Search meals by name")
+                  .font(.headline)
+                  .fontWeight(.semibold)
+                  .accentColor(.black)
+               Spacer()
+               Image(systemName: "chevron.right")
+            }
+            Divider()
+         }
+         .cardView()
+      }
+      .padding()
    }
    
    @ViewBuilder

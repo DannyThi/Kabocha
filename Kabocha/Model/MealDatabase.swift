@@ -15,16 +15,34 @@ final class MealDatabase: ObservableObject {
    private var cancellables = Set<AnyCancellable>()
    private let baseURL: String = "https://www.themealdb.com/api/json/v1/1/"
    private var imageCache = NSCache<NSString,NSData>()
-   private init() {
-      // load cache from store
-   }
+   private init() { }
 
-   func fetchRandomMeal() -> AnyPublisher<MealData,Error> {
-      
-      let url = URL(string: baseURL + "random.php")!
+   private func fetch(urlString: String) ->AnyPublisher<URLSession.DataTaskPublisher.Output,URLError> {
+      guard let url = URL(string: urlString) else {
+         return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+      }
       
       return URLSession.shared
          .dataTaskPublisher(for: url)
+         .eraseToAnyPublisher()
+   }
+   
+   func fetchRandomMeal() -> AnyPublisher<MealData,Error> {
+      
+      let url = "\(baseURL)random.php"
+      
+      return fetch(urlString: url)
+         .map { $0.data }
+         .decode(type: MealData.self, decoder: JSONDecoder())
+         .eraseToAnyPublisher()
+   }
+   
+
+   func fetchMealsBy(name: String) -> AnyPublisher<MealData,Error> {
+      
+      let urlString = baseURL + "search.php?s=" + name
+      
+      return fetch(urlString: urlString)
          .map { $0.data }
          .decode(type: MealData.self, decoder: JSONDecoder())
          .eraseToAnyPublisher()
@@ -35,7 +53,9 @@ final class MealDatabase: ObservableObject {
          return Just(image).setFailureType(to: URLError.self).eraseToAnyPublisher()
       }
       
-      let url = URL(string: urlString)!
+      guard let url = URL(string: urlString) else {
+         return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+      }
       return URLSession.shared
          .dataTaskPublisher(for: url)
          .map { output -> Data in
@@ -45,6 +65,7 @@ final class MealDatabase: ObservableObject {
          }
          .eraseToAnyPublisher()
    }
+   
 }
 
 enum KBCError: LocalizedError {
