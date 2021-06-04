@@ -20,19 +20,36 @@ struct SearchView: View {
             }
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
-            ScrollView {
-               ForEach(viewModel.fetchedResults, id: \.self) { meal in
-                  Text(meal.name)
+            ScrollView(.vertical, showsIndicators: false) {
+               if viewModel.isSearching {
+                  ProgressView()
+               } else {
+                  ForEach(viewModel.fetchedResults, id: \.self) { meal in
+                     cell(for: meal)
+                  }
                }
             }
+            .padding()
          }
          .navigationTitle("List")
       }
    }
    
    @ViewBuilder
-   private func mealCell() -> some View {
-      
+   private func cell(for meal: Meal) -> some View {
+      NavigationLink(destination: RecipeView(meal: meal)) {
+         VStack {
+            HStack {
+               Text(meal.name.capitalized)
+                  .accentColor(.primary)
+               Spacer()
+               AsyncImageView(urlString: meal.imageUrlString)
+                  .frame(width: 44, height: 44)
+               Image(systemName: "chevron.right")
+            }
+            Divider()
+         }
+      }
    }
 }
 

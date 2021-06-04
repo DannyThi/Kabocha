@@ -11,7 +11,6 @@
 		9739F1972658E99800FD3B0F /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F1962658E99800FD3B0F /* CardViewModifier.swift */; };
 		9739F199265B3A3300FD3B0F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F198265B3A3300FD3B0F /* SearchView.swift */; };
 		9739F19B265B3A3B00FD3B0F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F19A265B3A3B00FD3B0F /* SearchViewModel.swift */; };
-		9739F19D265B753400FD3B0F /* SearchBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F19C265B753400FD3B0F /* SearchBarController.swift */; };
 		9739F1A2265C813700FD3B0F /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F1A1265C813700FD3B0F /* TabView.swift */; };
 		97EF9F7A264E473A002F665B /* KabochaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF9F79264E473A002F665B /* KabochaApp.swift */; };
 		97EF9F7C264E473A002F665B /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97EF9F7B264E473A002F665B /* RecipeView.swift */; };
@@ -30,7 +29,6 @@
 		9739F1962658E99800FD3B0F /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
 		9739F198265B3A3300FD3B0F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		9739F19A265B3A3B00FD3B0F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		9739F19C265B753400FD3B0F /* SearchBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarController.swift; sourceTree = "<group>"; };
 		9739F1A1265C813700FD3B0F /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		97EF9F76264E473A002F665B /* Kabocha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kabocha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97EF9F79264E473A002F665B /* KabochaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KabochaApp.swift; sourceTree = "<group>"; };
@@ -89,7 +87,6 @@
 			children = (
 				9739F198265B3A3300FD3B0F /* SearchView.swift */,
 				9739F19A265B3A3B00FD3B0F /* SearchViewModel.swift */,
-				9739F19C265B753400FD3B0F /* SearchBarController.swift */,
 			);
 			path = SearchView;
 			sourceTree = "<group>";
@@ -237,7 +234,6 @@
 				97EF9F97264F917B002F665B /* RecipeViewModel.swift in Sources */,
 				97EF9F7C264E473A002F665B /* RecipeView.swift in Sources */,
 				97EF9F7A264E473A002F665B /* KabochaApp.swift in Sources */,
-				9739F19D265B753400FD3B0F /* SearchBarController.swift in Sources */,
 				9739F1972658E99800FD3B0F /* CardViewModifier.swift in Sources */,
 				97EF9F95264F4131002F665B /* HomeViewModel.swift in Sources */,
 				97EF9F93264E69EA002F665B /* MealDatabase.swift in Sources */,
