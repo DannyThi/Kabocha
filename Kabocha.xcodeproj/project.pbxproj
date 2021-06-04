@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9739F195265785AD00FD3B0F /* girl-cooking.png in Resources */ = {isa = PBXBuildFile; fileRef = 9739F194265785AD00FD3B0F /* girl-cooking.png */; };
 		9739F1972658E99800FD3B0F /* CardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F1962658E99800FD3B0F /* CardViewModifier.swift */; };
 		9739F199265B3A3300FD3B0F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F198265B3A3300FD3B0F /* SearchView.swift */; };
 		9739F19B265B3A3B00FD3B0F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9739F19A265B3A3B00FD3B0F /* SearchViewModel.swift */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9739F194265785AD00FD3B0F /* girl-cooking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "girl-cooking.png"; sourceTree = "<group>"; };
 		9739F1962658E99800FD3B0F /* CardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModifier.swift; sourceTree = "<group>"; };
 		9739F198265B3A3300FD3B0F /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		9739F19A265B3A3B00FD3B0F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				97EF9F8F264E617C002F665B /* Views */,
 				97EF9F8E264E616F002F665B /* Model */,
 				97EF9F79264E473A002F665B /* KabochaApp.swift */,
-				9739F194265785AD00FD3B0F /* girl-cooking.png */,
 				97EF9F7D264E473B002F665B /* Assets.xcassets */,
 				97EF9F82264E473B002F665B /* Info.plist */,
 				97EF9F7F264E473B002F665B /* Preview Content */,
@@ -215,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9739F195265785AD00FD3B0F /* girl-cooking.png in Resources */,
 				97EF9F81264E473B002F665B /* Preview Assets.xcassets in Resources */,
 				97EF9F7E264E473B002F665B /* Assets.xcassets in Resources */,
 			);
