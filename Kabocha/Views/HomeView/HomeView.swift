@@ -18,9 +18,8 @@ struct HomeView: View {
       NavigationView {
          ScrollView {
             VStack {
-               randomMealCard
-               HStack {
-                  searchByNameCard
+               ForEach(viewModel.mealArray, id: \.self) { meal in
+                  mealCard(for: meal)
                }
             }
          }
@@ -41,53 +40,26 @@ struct HomeView: View {
       }
    }
    
-   var randomMealCard: some View {
-      NavigationLink(destination: recipeView()) {
-         VStack {
-            VStack {
-               HStack {
-                  Text(viewModel.randomMeal?.name ?? "")
-                     .font(.title)
-                     .fontWeight(.bold)
-                     .lineLimit(1)
-                     .accentColor(.black)
-                  Spacer()
-               }
-                  .padding([.top,.horizontal])
-               
-               AsyncImageView(urlString: $viewModel.randomMealImageURL)
-                  .cornerRadius(8)
-            }
-               .cardView()
-         }
-            .padding()
-      }
-   }
-   
-   var searchByNameCard: some View {
-      NavigationLink(destination: Text("Search by name")) {
+
+   @ViewBuilder
+   private func mealCard(for meal: Meal) -> some View {
+      NavigationLink(destination: RecipeView(meal: meal)) {
          VStack {
             HStack {
-               Text("Search meals by name")
-                  .font(.headline)
-                  .fontWeight(.semibold)
+               Text(meal.name)
+                  .font(.title)
+                  .fontWeight(.bold)
+                  .lineLimit(1)
                   .accentColor(.black)
                Spacer()
-               Image(systemName: "chevron.right")
             }
-            Divider()
+            .padding([.top,.horizontal])
+            
+            AsyncImageView(urlString: meal.imageUrlString)
+               .cornerRadius(8)
          }
          .cardView()
-      }
-      .padding()
-   }
-   
-   @ViewBuilder
-   private func recipeView() -> some View {
-      if let meal = viewModel.randomMeal {
-         RecipeView(meal: meal)
-      } else {
-         Text("No recipe available")
+         .padding()
       }
    }
 }

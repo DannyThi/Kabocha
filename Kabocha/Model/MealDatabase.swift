@@ -37,10 +37,9 @@ final class MealDatabase: ObservableObject {
          .eraseToAnyPublisher()
    }
    
-
-   func fetchMealsBy(name: String) -> AnyPublisher<MealData,Error> {
-      
-      let urlString = baseURL + "search.php?s=" + name
+   func fetchMealsBy(letter: String) -> AnyPublisher<MealData,Error> {
+      let trimmed = trimCharacters(of: letter)
+      let urlString = baseURL + "search.php?f=" + trimmed
       
       return fetch(urlString: urlString)
          .map { $0.data }
@@ -48,6 +47,19 @@ final class MealDatabase: ObservableObject {
          .eraseToAnyPublisher()
    }
    
+   
+   func fetchMealsBy(name: String) -> AnyPublisher<MealData,Error> {
+      let trimmedName = trimCharacters(of: name)
+      let urlString = baseURL + "search.php?s=" + trimmedName
+
+      return fetch(urlString: urlString)
+         .map { $0.data }
+         .decode(type: MealData.self, decoder: JSONDecoder())
+         .eraseToAnyPublisher()
+   }
+   
+   
+   // IMAGE
    func fetchImage(urlString: String) ->AnyPublisher<Data,URLError> {
       if let image = imageCache.object(forKey: NSString(string: urlString)) as Data? {
          return Just(image).setFailureType(to: URLError.self).eraseToAnyPublisher()
@@ -66,6 +78,10 @@ final class MealDatabase: ObservableObject {
          .eraseToAnyPublisher()
    }
    
+   
+   private func trimCharacters(of string: String) -> String {
+      return string.trimmingCharacters(in: .urlQueryAllowed).trimmingCharacters(in: .whitespacesAndNewlines)
+   }
 }
 
 enum KBCError: LocalizedError {

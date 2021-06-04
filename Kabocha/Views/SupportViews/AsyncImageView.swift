@@ -9,20 +9,16 @@ import SwiftUI
 
 struct AsyncImageView: View {
    
-   @StateObject private var imageLoader = ImageLoader()
-   @Binding var urlString: String?
+   @StateObject private var imageLoader: ImageLoader
    
-   init(urlString: Binding<String?>) {
-      self._urlString = urlString
+   init(urlString: String?) {
+      self._imageLoader = StateObject(wrappedValue: ImageLoader(urlString: urlString))
    }
    
    var body: some View {
       image
-         .onChange(of: urlString) { url in
-            if let urlString = url {
-               imageLoader.urlString = urlString
-               imageLoader.load()
-            }
+         .onAppear {
+            self.imageLoader.load()
          }
    }
    
@@ -45,7 +41,11 @@ final class ImageLoader: ObservableObject {
    var urlString: String?
    
    private var db = MealDatabase.shared
-
+   
+   init(urlString: String?) {
+      self.urlString = urlString
+   }
+   
    func load() {
       print("Loading")
       guard let urlString = urlString else { return }

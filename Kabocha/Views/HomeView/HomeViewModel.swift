@@ -10,8 +10,7 @@ import Combine
 
 final class HomeViewModel: ObservableObject {
    
-   @Published var randomMeal: Meal?
-   @Published var randomMealImageURL: String?
+   @Published var mealArray: [Meal] = []
    
    private let db = MealDatabase.shared
    private var cancellables = Set<AnyCancellable>()
@@ -32,8 +31,7 @@ final class HomeViewModel: ObservableObject {
             }
          } receiveValue: { mealData in
             if let meal = mealData.meals.first {
-               self.randomMeal = meal
-               self.randomMealImageURL = meal.imageUrlString
+               self.mealArray.insert(meal, at: 0)
             }
          }
          .store(in: &cancellables)
