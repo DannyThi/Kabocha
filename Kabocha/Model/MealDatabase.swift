@@ -28,9 +28,8 @@ final class MealDatabase: ObservableObject {
    }
    
    func fetchRandomMeal() -> AnyPublisher<MealData,Error> {
-      
       let url = "\(baseURL)random.php"
-      
+      print("Fetching random meal")
       return fetch(urlString: url)
          .map { $0.data }
          .decode(type: MealData.self, decoder: JSONDecoder())
@@ -40,7 +39,7 @@ final class MealDatabase: ObservableObject {
    func fetchMealsBy(letter: String) -> AnyPublisher<MealData,Error> {
       let trimmed = trimCharacters(of: letter)
       let urlString = baseURL + "search.php?f=" + trimmed
-      
+      print("Fetching meals by letter")
       return fetch(urlString: urlString)
          .map { $0.data }
          .decode(type: MealData.self, decoder: JSONDecoder())
@@ -52,6 +51,7 @@ final class MealDatabase: ObservableObject {
       let trimmedName = trimCharacters(of: name)
       let urlString = baseURL + "search.php?s=" + trimmedName
 
+      print("Fetching meal by name")
       return fetch(urlString: urlString)
          .map { $0.data }
          .decode(type: MealData.self, decoder: JSONDecoder())
@@ -80,7 +80,8 @@ final class MealDatabase: ObservableObject {
    
    
    private func trimCharacters(of string: String) -> String {
-      return string.trimmingCharacters(in: .urlQueryAllowed).trimmingCharacters(in: .whitespacesAndNewlines)
+      let trimmed = string.trimmingCharacters(in: .whitespacesAndNewlines)
+      return trimmed
    }
 }
 

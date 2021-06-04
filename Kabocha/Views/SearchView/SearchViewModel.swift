@@ -10,21 +10,25 @@ import Combine
 
 final class SearchViewModel: ObservableObject {
    
-   @Published private var fetchedResults: [Meal] = []
-   @Published var filtered: [Meal] = []
-   @Published var isFetching = false
-      
-   var searchBarController = SearchBarController()
+   @Published var fetchedResults: [Meal] = []
 
    private var db = MealDatabase.shared
    private var cancellables = Set<AnyCancellable>()
    
-   init() {
-
-   }
-   
    func search(mealString: String) {
-      
+      db.fetchMealsBy(name: mealString)
+         .receive(on: DispatchQueue.main)
+         .sink { completion in
+            switch completion {
+            case let .failure(error):
+               print(error.localizedDescription)
+            case .finished:
+               break
+            }
+         } receiveValue: { mealData in
+            self.fetchedResults = mealData.meals
+         }
+         .store(in: &cancellables)
    }
    
 }

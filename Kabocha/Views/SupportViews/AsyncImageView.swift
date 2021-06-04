@@ -47,7 +47,6 @@ final class ImageLoader: ObservableObject {
    }
    
    func load() {
-      print("Loading")
       guard let urlString = urlString else { return }
       db.fetchImage(urlString: urlString)
          .receive(on: DispatchQueue.main)

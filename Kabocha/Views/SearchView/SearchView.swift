@@ -16,13 +16,23 @@ struct SearchView: View {
       NavigationView {
          VStack {
             TextField("Search for a Meal", text: $searchString) { _ in } onCommit: {
-               // search
+               self.viewModel.search(mealString: searchString)
             }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
-            
+            ScrollView {
+               ForEach(viewModel.fetchedResults, id: \.self) { meal in
+                  Text(meal.name)
+               }
+            }
          }
          .navigationTitle("List")
       }
+   }
+   
+   @ViewBuilder
+   private func mealCell() -> some View {
+      
    }
 }
 
